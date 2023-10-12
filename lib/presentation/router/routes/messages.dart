@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../modules/home/submodules/messages/friends_view.dart';
 import '../guards/auth_guard.dart';
 
 class MessagesRoute {
@@ -12,11 +12,7 @@ class MessagesRoute {
       path: path,
       name: name,
       redirect: authGuard,
-      builder: (_, state) => const Material(
-        child: Center(
-          child: Text('Messages'),
-        ),
-      ),
+      builder: (_, state) => const MessagesView(),
     );
   }
 }

@@ -35,4 +35,8 @@ class SessionBloc extends StateNotifier<User?> {
 
     return result;
   }
+
+  void signOut() {
+    state = null;
+  }
 }

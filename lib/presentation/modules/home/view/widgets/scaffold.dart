@@ -19,7 +19,7 @@ class HomeScaffold extends StatelessWidget {
       body: child,
       bottomNavigationBar: HomeBottomNavigationBar(
         currentLocation: routerState.uri.path,
-        onTap: (item) {},
+        onTap: (item) => context.go(item.routePath),
       ),
     );
   }

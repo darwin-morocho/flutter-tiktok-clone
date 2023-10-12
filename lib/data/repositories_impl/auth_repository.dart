@@ -13,9 +13,6 @@ class AuthRepositoryImpl implements AuthRepository {
 
   @override
   FutureEither<Failure, User> signIn() async {
-    await Future.delayed(
-      const Duration(seconds: 1),
-    );
     return Either.right(
       User(
         id: _faker.guid.guid(),

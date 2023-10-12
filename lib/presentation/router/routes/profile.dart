@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../modules/home/submodules/profile/profile_view.dart';
 import '../guards/auth_guard.dart';
 
 class ProfileRoute {
@@ -12,19 +12,7 @@ class ProfileRoute {
       path: path,
       name: name,
       redirect: authGuard,
-      builder: (_, __) => Material(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('Profile view'),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Sign out'),
-            ),
-          ],
-        ),
-      ),
+      builder: (_, __) => const ProfileView(),
     );
   }
 }
