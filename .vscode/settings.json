@@ -1,0 +1,17 @@
+{
+  "dart.lineLength": 100,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/*.freezed.dart": true
+  },
+  "command-runner.commands": {
+    "build_runner": "dart run build_runner build",
+    "flutter clean": "flutter clean",
+    "flutter pub get": "flutter pub get"
+  }
+}

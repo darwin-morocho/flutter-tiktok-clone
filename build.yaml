@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        enabled: true
+        generate_for:
+          include:
+            - lib/core/either.dart
+            - lib/domain/models/*.dart
+            - lib/domain/failures/*.dart
+            - lib/presentation/**_state.dart
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - "type=lint"
