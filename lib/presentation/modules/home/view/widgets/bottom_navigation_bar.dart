@@ -1,26 +1,38 @@
 import 'package:flutter/material.dart';
 
+import '../../../../router/routes/friends.dart';
+import '../../../../router/routes/home.dart';
+import '../../../../router/routes/messages.dart';
+import '../../../../router/routes/profile.dart';
+
 enum HomeBottomNavigationBarItem {
-  home,
-  friends,
-  messages,
-  profile,
+  home(HomeRoute.path),
+  friends(FriendsRoute.path),
+  messages(MessagesRoute.path),
+  profile(ProfileRoute.path),
+  ;
+
+  const HomeBottomNavigationBarItem(this.routePath);
+
+  final String routePath;
 }
 
 class HomeBottomNavigationBar extends StatelessWidget {
   const HomeBottomNavigationBar({
     super.key,
+    required this.currentLocation,
     required this.onTap,
   });
 
+  final String currentLocation;
   final void Function(HomeBottomNavigationBarItem item) onTap;
 
   @override
   Widget build(BuildContext context) {
     final padding = MediaQuery.of(context).padding;
 
-    // Color getIconColor(String path) => routePath.startsWith(path) ? Colors.white : Colors.white38;
-    Color getIconColor(String path) => Colors.white;
+    Color getIconColor(String path) => currentLocation.startsWith(path) ? Colors.white : Colors.white38;
+  
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -40,14 +52,14 @@ class HomeBottomNavigationBar extends StatelessWidget {
                   onPressed: () => onTap(HomeBottomNavigationBarItem.home),
                   icon: Icon(
                     Icons.home_outlined,
-                    // color: getIconColor(HomeRoute.path),
+                    color: getIconColor(HomeRoute.path),
                   ),
                 ),
                 IconButton(
                   onPressed: () => onTap(HomeBottomNavigationBarItem.friends),
                   icon: Icon(
                     Icons.people_outline_rounded,
-                    // color: getIconColor(FriendsRoute.path),
+                    color: getIconColor(FriendsRoute.path),
                   ),
                 ),
                 MaterialButton(
@@ -64,14 +76,14 @@ class HomeBottomNavigationBar extends StatelessWidget {
                   onPressed: () => onTap(HomeBottomNavigationBarItem.messages),
                   icon: Icon(
                     Icons.message_outlined,
-                    // color: getIconColor(MessagesRoute.path),
+                    color: getIconColor(MessagesRoute.path),
                   ),
                 ),
                 IconButton(
                   onPressed: () => onTap(HomeBottomNavigationBarItem.profile),
                   icon: Icon(
                     Icons.person_outline_rounded,
-                    // color: getIconColor(ProfileRoute.path),
+                    color: getIconColor(ProfileRoute.path),
                   ),
                 ),
               ],

@@ -222,6 +222,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_meedu:
+    dependency: "direct main"
+    description:
+      name: flutter_meedu
+      sha256: ce48fd864ea638f99161877059cbd13beaee79e754b19aa7f71903470c7a7639
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
