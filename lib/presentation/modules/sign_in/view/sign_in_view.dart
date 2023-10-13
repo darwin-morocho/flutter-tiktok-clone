@@ -15,13 +15,46 @@ class SignInView extends StatelessWidget {
   final String redirect;
   final BuildContext? dialogContext;
 
+  static Future<void> showModal({
+    required BuildContext context,
+    required String redirect,
+  }) {
+    return showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.9,
+      ),
+      builder: (context) => ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
+        ),
+        child: SignInView(
+          dialogContext: context,
+          redirect: redirect,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: SafeArea(
         child: Column(
           children: [
+            if (dialogContext != null)
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(
+                    Icons.close_rounded,
+                    size: 35,
+                  ),
+                ),
+              ),
             Text(
               'Sign In',
               style: Theme.of(context).textTheme.titleLarge,

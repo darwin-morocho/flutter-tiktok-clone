@@ -12,6 +12,9 @@ void main() async {
       DeviceOrientation.portraitUp,
     ],
   );
+  Repositories.reels.setArguments(
+    Faker(),
+  );
   Repositories.auth.setArguments(
     Faker(),
   );
@@ -19,4 +22,3 @@ void main() async {
     const MainApp(),
   );
 }
-

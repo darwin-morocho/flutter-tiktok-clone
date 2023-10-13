@@ -33,12 +33,12 @@ class ReelsRepositoryImpl implements ReelsRepository {
     );
     return Either.right(
       List.generate(
-        10,
+        8,
         (index) {
           return Reel(
             id: (index * page).toString(),
             description: _faker.lorem.sentence(),
-            mediaURL: videos[_faker.randomGenerator.integer(7)],
+            mediaURL: videos[index],
             autor: ReelAutor(
               id: _faker.guid.guid(),
               displayName: _faker.person.name(),

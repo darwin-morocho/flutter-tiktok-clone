@@ -31,8 +31,8 @@ class HomeBottomNavigationBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final padding = MediaQuery.of(context).padding;
 
-    Color getIconColor(String path) => currentLocation.startsWith(path) ? Colors.white : Colors.white38;
-  
+    Color getIconColor(String path) =>
+        currentLocation.startsWith(path) ? Colors.white : Colors.white38;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
