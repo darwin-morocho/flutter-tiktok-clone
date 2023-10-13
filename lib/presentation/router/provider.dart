@@ -1,4 +1,5 @@
-import 'package:flutter_meedu/flutter_meedu.dart';
+
+import 'package:flutter_meedu/providers.dart';
 import 'package:go_router/go_router.dart';
 
 import '../modules/home/view/widgets/scaffold.dart';
