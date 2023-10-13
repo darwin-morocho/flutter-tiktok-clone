@@ -7,8 +7,6 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ReelsView(
-      reelsTag: ReelsTag(tag: 'home'),
-    );
+    return const ReelsView();
   }
 }

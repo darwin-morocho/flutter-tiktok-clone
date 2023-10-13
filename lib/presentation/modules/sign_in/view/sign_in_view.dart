@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../../core/either.dart';
 import '../../../extensions/extensions.dart';
-import '../../../global/blocs/session_bloc.dart';
 
 class SignInView extends StatelessWidget {
   const SignInView({
@@ -80,22 +77,5 @@ class SignInView extends StatelessWidget {
     );
   }
 
-  Future<void> _signIn(BuildContext context) async {
-    final result = await sessionProvider.read().signIn();
-
-    if (!context.mounted) {
-      return;
-    }
-
-    switch (result) {
-      case Left _:
-
-      /// show error message
-      case Right _:
-        if (dialogContext?.mounted ?? false) {
-          Navigator.pop(dialogContext!);
-        }
-        context.go(redirect);
-    }
-  }
+  Future<void> _signIn(BuildContext context) async {}
 }

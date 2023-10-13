@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meedu/consumer.dart';
 import 'package:flutter_meedu/screen_utils.dart';
 
 import '../../../../../domain/models/reel.dart';
-import '../../blocs/video_player/video_player_bloc.dart';
-import '../../blocs/video_player/video_player_state.dart';
-import 'player_slider.dart';
 
 class ReelInfo extends StatelessWidget {
   const ReelInfo({super.key, required this.reel});
@@ -50,22 +46,9 @@ class ReelInfo extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          Consumer(
-            builder: (_, ref, __) {
-              final bloc = ref.watch(
-                videoPlayerProvider,
-                tag: reel.id,
-              );
-              return switch (bloc.state) {
-                VideoPlayerLoadedState state => VideoPlayerSlider(
-                    position: state.sliderPosition ?? state.position,
-                    duration: state.duration,
-                    onChanged: bloc.onPosition,
-                  ),
-                _ => const SizedBox.shrink(),
-              };
-            },
-          ),
+
+          /// START VIDEO PLAYER SLIDER
+          /// END VIDEO PLAYER SLIDER
         ],
       ),
     );

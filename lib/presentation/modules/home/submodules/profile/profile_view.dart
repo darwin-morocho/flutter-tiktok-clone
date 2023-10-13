@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-
-import '../../../../global/blocs/session_bloc.dart';
-import '../../../../router/routes/home.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -16,10 +12,7 @@ class ProfileView extends StatelessWidget {
           const Text('Profile view'),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {
-              sessionProvider.read().signOut();
-              context.go(HomeRoute.path);
-            },
+            onPressed: () {},
             child: const Text('Sign out'),
           ),
         ],

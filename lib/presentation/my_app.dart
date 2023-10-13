@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 import 'global/colors.dart';
-import 'router/provider.dart';
+import 'modules/home/view/widgets/scaffold.dart';
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: routerProvider.read(),
+    return MaterialApp(
+      home: const HomeScaffold(
+        child: Placeholder(),
+      ),
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: AppColors.dark,
