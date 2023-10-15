@@ -32,8 +32,12 @@ class MainApp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
-            backgroundColor: const MaterialStatePropertyAll(Colors.blue),
-            foregroundColor: const MaterialStatePropertyAll(Colors.white),
+            backgroundColor: const MaterialStatePropertyAll(
+              Colors.blue,
+            ),
+            foregroundColor: const MaterialStatePropertyAll(
+              Colors.white,
+            ),
           ),
         ),
       ),
