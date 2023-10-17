@@ -1,42 +1,54 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_meedu/consumer.dart';
+import 'package:flutter_meedu/providers.dart';
 
-class VideoPlayerSlider extends StatelessWidget {
+import '../../blocs/video_player/video_player_bloc.dart';
+import '../../blocs/video_player/video_player_state.dart';
+
+class VideoPlayerSlider extends ConsumerWidget {
   const VideoPlayerSlider({
     super.key,
-    required this.onChanged,
-    required this.duration,
-    required this.position,
+    required this.tag,
   });
-  final Duration position;
-  final Duration duration;
-
-  final void Function(Duration) onChanged;
+  final String tag;
 
   @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 4,
-      child: SliderTheme(
-        data: SliderThemeData(
-          trackShape: _SliderTrackShape(),
-          thumbShape: const RoundSliderThumbShape(
-            enabledThumbRadius: 2,
-          ),
-        ),
-        child: Slider(
-          thumbColor: Colors.white,
-          activeColor: Colors.white,
-          inactiveColor: Colors.white24,
-          max: duration.inSeconds.toDouble(),
-          value: position.inSeconds.toDouble(),
-          onChanged: (value) => onChanged(
-            Duration(
-              seconds: value.toInt(),
-            ),
-          ),
-        ),
+  Widget build(BuildContext context, BuilderRef ref) {
+    final bloc = ref.watch(
+      videoPlayerProvider.select(
+        (state) => switch (state) {
+          VideoPlayerLoadedState state => state.position,
+          _ => null,
+        },
+        tag: tag,
       ),
     );
+
+    switch (bloc.state) {
+      case VideoPlayerLoadedState state:
+        return SliderTheme(
+          data: SliderThemeData(
+            trackShape: _SliderTrackShape(),
+            thumbShape: const RoundSliderThumbShape(
+              enabledThumbRadius: 4,
+            ),
+          ),
+          child: Slider(
+            thumbColor: Colors.white,
+            activeColor: Colors.white,
+            inactiveColor: Colors.white24,
+            max: state.duration.inSeconds.toDouble(),
+            value: state.position.inSeconds.toDouble(),
+            onChanged: (value) => bloc.seekTo(
+              Duration(
+                seconds: value.toInt(),
+              ),
+            ),
+          ),
+        );
+      case _:
+        return const SizedBox.shrink();
+    }
   }
 }
 
@@ -51,7 +63,7 @@ class _SliderTrackShape extends SliderTrackShape {
   }) {
     return Rect.fromLTWH(
       0,
-      0,
+      parentBox.size.height * 0.5 - 2,
       parentBox.size.width,
       parentBox.size.height,
     );
@@ -73,7 +85,7 @@ class _SliderTrackShape extends SliderTrackShape {
     final paint = Paint();
     paint.color = Colors.white30;
     final canvas = context.canvas;
-    final top = parentBox.size.height * 0.5 - 2;
+    final top = parentBox.size.height - 4;
     canvas.drawRRect(
       RRect.fromRectAndRadius(
         Rect.fromLTWH(

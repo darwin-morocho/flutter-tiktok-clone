@@ -12,5 +12,7 @@ sealed class ReelsState with _$ReelsState {
 
   factory ReelsState.loaded({
     required List<Reel> reels,
+    required int page,
+    @Default(false) bool fetching,
   }) = ReelsLoadedState;
 }

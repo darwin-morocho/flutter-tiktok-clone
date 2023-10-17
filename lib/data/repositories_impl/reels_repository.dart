@@ -36,7 +36,7 @@ class ReelsRepositoryImpl implements ReelsRepository {
         8,
         (index) {
           return Reel(
-            id: (index * page).toString(),
+            id: '${index * page}${_faker.guid.guid()}',
             description: _faker.lorem.sentence(),
             mediaURL: videos[index],
             autor: ReelAutor(
