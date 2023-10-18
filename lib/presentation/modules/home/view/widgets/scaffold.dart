@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../../../../global/blocs/session/session_bloc.dart';
+
 import '../../../../router/guards/auth_guard.dart';
 import '../../../sign_in/view/sign_in_view.dart';
 import 'bottom_navigation_bar.dart';
