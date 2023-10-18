@@ -15,7 +15,7 @@ class ReelsPageView extends StatelessWidget {
   Widget build(BuildContext context) {
     Future<void> loadReels(bool more) async {
       final reelsBloc = reelsProvider.read(
-        tag: context.findAncestorWidgetOfExactType<ReelsView>()?.tag,
+        tag: context.findAncestorWidgetOfExactType<ReelsView>()!.tag,
       );
       switch (reelsBloc.state) {
         case ReelsLoadedState state:

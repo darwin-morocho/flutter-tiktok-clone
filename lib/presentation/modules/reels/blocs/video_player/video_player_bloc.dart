@@ -6,15 +6,13 @@ import 'package:video_player/video_player.dart';
 
 import 'video_player_state.dart';
 
-final videoPlayerProvider =
-    StateNotifierArgumentsProvider<VideoPlayerBloc, VideoPlayerState, String>(
+final videoPlayerProvider = Provider.stateArgumentsTag<VideoPlayerBloc, VideoPlayerState, String>(
   (ref) => VideoPlayerBloc(
     VideoPlayerState.loading(),
     controller: VideoPlayerController.networkUrl(
       Uri.parse(ref.arguments),
     ),
   )..init(),
-  tags: true,
 );
 
 class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {

@@ -9,12 +9,11 @@ import '../../../../../domain/repositories/reels_repository.dart';
 import '../../../../repositories.dart';
 import 'reels_state.dart';
 
-final reelsProvider = StateNotifierProvider<ReelsBloc, ReelsState>(
+final reelsProvider = Provider.stateTag<ReelsBloc, ReelsState>(
   (ref) => ReelsBloc(
     ReelsState.loading(),
     reelsRepository: Repositories.reels.read(),
   )..init(),
-  tags: true,
 );
 
 class ReelsBloc extends StateNotifier<ReelsState> {
