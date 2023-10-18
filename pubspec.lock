@@ -425,13 +425,13 @@ packages:
     source: hosted
     version: "0.5.0"
   meedu_lints:
-    dependency: "direct main"
+    dependency: "direct dev"
     description:
       name: meedu_lints
-      sha256: "409785ef74dd3970710139eff7f141c60088f7216f5cb4cf6ceef7c7f731777e"
+      sha256: ab5764f9d11e68a4fdaf332aa99dcbb9c92c4555feeb56fce088638669b0b5bb
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.5"
   meta:
     dependency: transitive
     description:
