@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meedu/screen_utils.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../domain/models/reel.dart';
 import '../../../../extensions/extensions.dart';
+import '../../../../router/routes/user.dart';
 
 class ReelActions extends StatelessWidget {
   const ReelActions({super.key, required this.reel});
@@ -14,9 +16,16 @@ class ReelActions extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          CircleAvatar(
-            foregroundImage:
-                avatarPhotoURL != null ? NetworkImage(avatarPhotoURL) : null,
+          InkWell(
+            onTap: () => context.pushNamed(
+              UserProfileRoute.name,
+              pathParameters: {
+                'id': reel.autor.id,
+              },
+            ),
+            child: CircleAvatar(
+              foregroundImage: avatarPhotoURL != null ? NetworkImage(avatarPhotoURL) : null,
+            ),
           ),
           30.h,
           ShadowView(
@@ -57,11 +66,7 @@ class ShadowView extends StatelessWidget {
     return DecoratedBox(
       decoration: const BoxDecoration(
         boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10,
-            offset: Offset(0, 2)
-          ),
+          BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(0, 2)),
         ],
       ),
       child: child,

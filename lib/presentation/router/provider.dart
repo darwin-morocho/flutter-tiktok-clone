@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_meedu/providers.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,10 +8,14 @@ import 'routes/home.dart';
 import 'routes/messages.dart';
 import 'routes/profile.dart';
 import 'routes/sign_in.dart';
+import 'routes/user.dart';
+
+final rootNavigationKey = GlobalKey<NavigatorState>();
 
 final routerProvider = Provider(
   (ref) => GoRouter(
     initialLocation: HomeRoute.path,
+    navigatorKey: rootNavigationKey,
     routes: [
       SignInRoute.route,
       StatefulShellRoute.indexedStack(
@@ -43,6 +48,7 @@ final routerProvider = Provider(
           ),
         ],
       ),
+      UserProfileRoute.route,
     ],
   ),
 );

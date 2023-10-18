@@ -14,6 +14,7 @@ final reelsProvider = StateNotifierProvider<ReelsBloc, ReelsState>(
     ReelsState.loading(),
     reelsRepository: Repositories.reels.read(),
   )..init(),
+  tags: true,
 );
 
 class ReelsBloc extends StateNotifier<ReelsState> {

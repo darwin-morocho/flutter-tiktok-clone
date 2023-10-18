@@ -33,6 +33,7 @@ class VideoPlayerBloc extends StateNotifier<VideoPlayerState> {
         duration: controller.value.duration,
       );
       await controller.setLooping(true);
+      await controller.setVolume(0);
       controller.addListener(_listener);
       await controller.play();
     } catch (_) {

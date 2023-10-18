@@ -8,13 +8,16 @@ import 'widgets/reels_page_view.dart';
 class ReelsView extends StatelessWidget {
   const ReelsView({
     super.key,
+    required this.tag,
   });
+
+  final String tag;
 
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (_, ref, __) {
-        final bloc = ref.watch(reelsProvider);
+        final bloc = ref.watch(reelsProvider, tag: tag);
 
         return switch (bloc.state) {
           ReelsLoadingState _ => const Center(

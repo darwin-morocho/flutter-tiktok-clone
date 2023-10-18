@@ -36,7 +36,7 @@ class HomeScaffold extends StatelessWidget {
     return Scaffold(
       body: child,
       bottomNavigationBar: HomeBottomNavigationBar(
-        currentLocation: '',
+        currentLocation: state.fullPath ?? '',
         onTap: goTo,
       ),
     );

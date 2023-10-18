@@ -4,6 +4,7 @@ import '../../../../../domain/models/reel.dart';
 import '../../blocs/reels/reels_bloc.dart';
 import '../../blocs/reels/reels_state.dart';
 import '../../blocs/video_player/video_player_bloc.dart';
+import '../reels_view.dart';
 import 'reel_viewer.dart';
 
 class ReelsPageView extends StatelessWidget {
@@ -13,7 +14,9 @@ class ReelsPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future<void> loadReels(bool more) async {
-      final reelsBloc = reelsProvider.read();
+      final reelsBloc = reelsProvider.read(
+        tag: context.findAncestorWidgetOfExactType<ReelsView>()?.tag,
+      );
       switch (reelsBloc.state) {
         case ReelsLoadedState state:
           if (!state.fetching) {
