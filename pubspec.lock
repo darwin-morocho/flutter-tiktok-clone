@@ -274,10 +274,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_meedu
-      sha256: daf53397af05923d669b20e00aacfbf123026cacb413cc66dcdceb740d6629f5
+      sha256: "09fdaa93cde0e276d446ccad41f20f4d439626ce20722b8f2a768b73638b0200"
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.5"
+    version: "9.0.6"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -424,14 +424,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.5.0"
+  meedu:
+    dependency: transitive
+    description:
+      name: meedu
+      sha256: "77735c8699253ac58312c504b857c5a5b95a70bb73937ca4a13ccae37d61f42e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "9.0.0"
   meedu_lints:
     dependency: "direct dev"
     description:
       name: meedu_lints
-      sha256: ab5764f9d11e68a4fdaf332aa99dcbb9c92c4555feeb56fce088638669b0b5bb
+      sha256: "1519c0c29ae729fa2393584f331ca297569686e8087115ad70652289e976a74d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.5"
+    version: "0.0.6"
   meta:
     dependency: transitive
     description:
