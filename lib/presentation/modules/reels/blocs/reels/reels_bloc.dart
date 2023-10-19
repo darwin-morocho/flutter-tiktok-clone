@@ -1,4 +1,4 @@
-import 'package:flutter_meedu/notifiers/state_notifier.dart';
+import 'package:flutter_meedu/notifiers.dart';
 import 'package:flutter_meedu/providers.dart';
 
 import '../../../../../core/either.dart';
